@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration Form</title>
+</head>
+<body>
+<h3>User Registration Form</h3>
+<form action="register" method="POST">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="Enter your name"><br>
+    <input type="text" name="first_name" placeholder="Enter your first name"><br>
+    <input type="text" name="last_name" placeholder="Enter your last name"><br>
+    <input type="email" name="email" placeholder="Enter your email ID"><br>
+    <input type="password" name="password" placeholder="Enter your password"><br>
+    <input type="password" name="password1" placeholder="Confirm your password"><br>
+    <input type="submit">
+</form>
+
+<script>
+    // Check if there's a success message and display it as an alert
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'success' %}
+                alert("{{ message }}");
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+</script>
+
+</body>
+</html>
